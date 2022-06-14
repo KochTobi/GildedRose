@@ -3,10 +3,17 @@
  * <p>
  * <More detailed description - When to use, what it solves, etc.>
  *
- * @since: <version tag>
+ * @since <version tag>
  */
 public class AgedBrie implements StorageItem {
 
+  private int quality;
+  private int sellIn;
+
+  public AgedBrie(int quality, int sellIn) {
+    this.quality = quality;
+    this.sellIn = sellIn;
+  }
 
   @Override
   public void update() {
@@ -20,11 +27,11 @@ public class AgedBrie implements StorageItem {
 
   @Override
   public int sellIn() {
-    return 0;
+    return sellIn;
   }
 
   @Override
   public int quality() {
-    return 0;
+    return quality;
   }
 }

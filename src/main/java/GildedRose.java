@@ -4,7 +4,7 @@ import java.util.List;
 
 public class GildedRose {
 
-  private static List<Item> items = null;
+  private static List<StorageItem> items = null;
 
   /**
    * @param args
@@ -13,8 +13,8 @@ public class GildedRose {
 
     System.out.println("OMGHAI!");
 
-    items = new ArrayList<Item>();
-    StorageItem agedBrie = ItemFactory.createAgedBrie();
+    items = new ArrayList<StorageItem>();
+    StorageItem agedBrie = ItemFactory.createAgedBrie(2, 0);
     System.out.println(agedBrie.name());
     items.add(new Item("+5 Dexterity Vest", 10, 20));
     items.add(new Item("Aged Brie", 2, 0));
@@ -28,51 +28,51 @@ public class GildedRose {
 
   public static void updateQuality() {
     for (int i = 0; i < items.size(); i++) {
-      if ((!"Aged Brie".equals(items.get(i).getName()))
-          && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) {
-        if (items.get(i).getQuality() > 0) {
-          if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName())) {
-            items.get(i).setQuality(items.get(i).getQuality() - 1);
+      if ((!"Aged Brie".equals(items.get(i).name()))
+          && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).name())) {
+        if (items.get(i).quality() > 0) {
+          if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).name())) {
+            items.get(i).update();
           }
         }
       } else {
-        if (items.get(i).getQuality() < 50) {
-          items.get(i).setQuality(items.get(i).getQuality() + 1);
+        if (items.get(i).quality() < 50) {
+          items.get(i).update();
 
-          if ("Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) {
-            if (items.get(i).getSellIn() < 11) {
-              if (items.get(i).getQuality() < 50) {
-                items.get(i).setQuality(items.get(i).getQuality() + 1);
+          if ("Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).name())) {
+            if (items.get(i).sellIn() < 11) {
+              if (items.get(i).quality() < 50) {
+                items.get(i).update();
               }
             }
 
-            if (items.get(i).getSellIn() < 6) {
-              if (items.get(i).getQuality() < 50) {
-                items.get(i).setQuality(items.get(i).getQuality() + 1);
+            if (items.get(i).sellIn() < 6) {
+              if (items.get(i).quality() < 50) {
+                items.get(i).update();
               }
             }
           }
         }
       }
 
-      if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName())) {
-        items.get(i).setSellIn(items.get(i).getSellIn() - 1);
+      if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).name())) {
+        items.get(i).update();
       }
 
-      if (items.get(i).getSellIn() < 0) {
-        if (!"Aged Brie".equals(items.get(i).getName())) {
-          if (!"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) {
-            if (items.get(i).getQuality() > 0) {
-              if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName())) {
-                items.get(i).setQuality(items.get(i).getQuality() - 1);
+      if (items.get(i).sellIn() < 0) {
+        if (!"Aged Brie".equals(items.get(i).name())) {
+          if (!"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).name())) {
+            if (items.get(i).quality() > 0) {
+              if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).name())) {
+                items.get(i).update();
               }
             }
           } else {
-            items.get(i).setQuality(items.get(i).getQuality() - items.get(i).getQuality());
+            items.get(i).update();
           }
         } else {
-          if (items.get(i).getQuality() < 50) {
-            items.get(i).setQuality(items.get(i).getQuality() + 1);
+          if (items.get(i).quality() < 50) {
+            items.get(i).update();
           }
         }
       }

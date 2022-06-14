@@ -1,5 +1,5 @@
 
-public class Item {
+public class Item implements StorageItem{
 
   public String name;
   public int sellIn;
@@ -34,5 +34,25 @@ public class Item {
 
   public void setQuality(int quality) {
     this.quality = quality;
+  }
+
+  @Override
+  public void update() {
+
+  }
+
+  @Override
+  public String name() {
+    return getName();
+  }
+
+  @Override
+  public int sellIn() {
+    return getSellIn();
+  }
+
+  @Override
+  public int quality() {
+    return getQuality();
   }
 }
