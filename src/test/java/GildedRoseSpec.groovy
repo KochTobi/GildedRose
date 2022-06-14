@@ -1,4 +1,4 @@
-import spock.lang.Ignore
+
 import spock.lang.Specification
 
 class GildedRoseSpec extends Specification {

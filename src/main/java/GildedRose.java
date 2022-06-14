@@ -14,6 +14,8 @@ public class GildedRose {
     System.out.println("OMGHAI!");
 
     items = new ArrayList<Item>();
+    StorageItem agedBrie = ItemFactory.createAgedBrie();
+    System.out.println(agedBrie.name());
     items.add(new Item("+5 Dexterity Vest", 10, 20));
     items.add(new Item("Aged Brie", 2, 0));
     items.add(new Item("Elixir of the Mongoose", 5, 7));
@@ -23,7 +25,6 @@ public class GildedRose {
 
     updateQuality();
   }
-
 
   public static void updateQuality() {
     for (int i = 0; i < items.size(); i++) {
