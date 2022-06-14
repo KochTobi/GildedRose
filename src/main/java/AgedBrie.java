@@ -9,6 +9,7 @@ public class AgedBrie implements StorageItem {
 
   private int quality;
   private int sellIn;
+  private static final int MAX_QUALITY = 50;
 
   public AgedBrie(int quality, int sellIn) {
     this.quality = quality;
@@ -17,7 +18,10 @@ public class AgedBrie implements StorageItem {
 
   @Override
   public void update() {
-
+    if (quality != MAX_QUALITY) {
+      quality += 1;
+    }
+    sellIn -= 1;
   }
 
   @Override

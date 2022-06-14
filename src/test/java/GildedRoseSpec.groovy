@@ -6,7 +6,7 @@ class GildedRoseSpec extends Specification {
   def "at the end of the day item quality decreases by 1 and sellIn date decreases by 1"() {
 
     given:
-    def items = new ArrayList<Item>();
+    def items = new ArrayList<StorageItem>();
 
     def item = new Item("Test Item", 10, 20)
     items.add(item);
@@ -14,7 +14,7 @@ class GildedRoseSpec extends Specification {
     when:
     GildedRose.updateQuality()
     then:
-    item.getQuality() < 20
+    item.quality() < 20
     item.getSellIn() < 10
   }
 
@@ -27,43 +27,44 @@ class GildedRoseSpec extends Specification {
     when:
     GildedRose.updateQuality()
     then:
-    item.getQuality() >= 0
+    item.quality() >= 0
   }
 
   def "aged brie increases in quality over time"() {
     given:
-    def items = new ArrayList<Item>();
-    def item = new Item("Aged Brie", 2, 0)
+    def items = new ArrayList<StorageItem>();
+    def item = ItemFactory.createAgedBrie(2,0)
     items.add(item);
     GildedRose.items = items
     when:
     GildedRose.updateQuality()
     then:
-    item.getQuality() > 0
+    item.quality() > 0
   }
 
   def "aged brie increases in quality even if the sellIn passed"() {
     given:
-    def items = new ArrayList<Item>();
-    def item = new Item("Aged Brie", -1, 0)
+    def items = new ArrayList<StorageItem>();
+    def item = ItemFactory.createAgedBrie(-1, 0)
     items.add(item);
     GildedRose.items = items
     when:
     GildedRose.updateQuality()
     then:
-    item.getQuality() > 0
+    item.quality() > 0
   }
 
   def "the quality of an item is never more than 50"() {
     given:
     def items = new ArrayList<Item>();
-    def item = new Item("Aged Brie", 2, 50)
+    def item = ItemFactory.createAgedBrie(2, 50)
+    items.add(item);
     items.add(item);
     GildedRose.items = items
     when:
     GildedRose.updateQuality()
     then:
-    item.getQuality() == 50
+    item.quality() == 50
   }
 
   def "Sulfuras does not loose quality"() {
@@ -75,7 +76,7 @@ class GildedRoseSpec extends Specification {
     when:
     GildedRose.updateQuality()
     then:
-    item.getQuality() == 80
+    item.quality() == 80
   }
 
   def "Sulfuras never has to be sold"() {
