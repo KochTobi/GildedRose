@@ -19,6 +19,7 @@ public class AgedBrie implements StorageItem {
   @Override
   public void update() {
     if (quality != MAX_QUALITY) {
+
       quality += 1;
     }
     sellIn -= 1;
