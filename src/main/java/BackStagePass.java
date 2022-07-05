@@ -5,15 +5,16 @@
  *
  * @since <version tag>
  */
-public class BackStagePassItem implements StorageItem {
+public class BackStagePass implements StorageItem {
 
   private int sellIn;
-
+  private String concertName;
   private int quality;
 
-  public BackStagePassItem(int sellIn, int quality) {
+  public BackStagePass(int sellIn, int quality, String concertName) {
     this.sellIn = sellIn;
     this.quality = quality;
+    this.concertName = concertName;
   }
 
   @Override
@@ -29,7 +30,7 @@ public class BackStagePassItem implements StorageItem {
 
   @Override
   public String name() {
-    return "Backstage pass";
+    return "Backstage passes to " + concertName;
   }
 
   @Override

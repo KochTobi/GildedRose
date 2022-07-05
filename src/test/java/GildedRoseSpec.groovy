@@ -6,23 +6,23 @@ class GildedRoseSpec extends Specification {
   def "at the end of the day item quality decreases by 1 and sellIn date decreases by 1"() {
 
     given:
-    def items = new ArrayList<StorageItem>();
+    def items = new ArrayList<StorageItem>()
 
     def item = new Item("Test Item", 10, 20)
-    items.add(item);
+    items.add(item)
     GildedRose.items = items
     when:
     GildedRose.updateQuality()
     then:
-    item.quality() < 20
-    item.getSellIn() < 10
+    item.quality() == 19
+    item.getSellIn() == 9
   }
 
   def "the quality of an item is never negative"() {
     given:
-    def items = new ArrayList<Item>();
+    def items = new ArrayList<Item>()
     def item = new Item("Nearly negative item", 10, 0)
-    items.add(item);
+    items.add(item)
     GildedRose.items = items
     when:
     GildedRose.updateQuality()
@@ -120,16 +120,16 @@ class GildedRoseSpec extends Specification {
 
   def "when the backstage pass increases in quality, the quality must not be greater than 50"() {
     when:
-    def items = new ArrayList<Item>();
-    def item = new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 50)
-    def item2 = new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 47)
-    def item3 = new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 48)
-    def item4 = new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 49)
-    items.addAll(item, item2, item3, item4);
+    def items = new ArrayList<StorageItem>()
+    def item = ItemFactory.createBackstagePass(sellIn, 50, "TAFKAL80ETC")
+    def item2 = ItemFactory.createBackstagePass(sellIn, 47, "TAFKAL80ETC")
+    def item3 = ItemFactory.createBackstagePass(sellIn, 48, "TAFKAL80ETC")
+    def item4 = ItemFactory.createBackstagePass(sellIn, 49, "TAFKAL80ETC")
+    items.addAll(item, item2, item3, item4)
     GildedRose.items = items
     GildedRose.updateQuality()
     then:
-    items.every {it.quality <= 50}
+    items.every {it.quality() <= 50}
     where:
     sellIn << [0,1,2,3,4,5,6,7,8,9,10,11,20,44]
   }

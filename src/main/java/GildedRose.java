@@ -53,28 +53,6 @@ public class GildedRose {
           }
         }
       }
-
-      //if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).name())) {
-        //items.get(i).update();
-      //}
-
-      if (items.get(i).sellIn() < 0) {
-        if (!"Aged Brie".equals(items.get(i).name())) {
-          if (!"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).name())) {
-            if (items.get(i).quality() > 0) {
-              if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).name())) {
-                //items.get(i).update();
-              }
-            }
-          } else {
-            items.get(i).update();
-          }
-        } else {
-          if (items.get(i).quality() < 50) {
-            items.get(i).update();
-          }
-        }
-      }
     }
   }
 

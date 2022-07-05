@@ -42,15 +42,20 @@ public class Item implements StorageItem {
 
     @Override
     public void update() {
-        if (quality <= 0) {
-            return;
-        }
         if (sellIn < 0) {
-            setQuality(quality - 2);
+            decreaseQualityBy(2);
         } else {
-            setQuality(quality - 1);
+            decreaseQualityBy(1);
         }
         setSellIn(sellIn - 1);
+    }
+
+    protected void decreaseQualityBy(int amount){
+      if (quality - amount <= 0) {
+        quality = 0;
+        return;
+      }
+      setQuality(quality - amount);
     }
 
     @Override

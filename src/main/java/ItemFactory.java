@@ -11,4 +11,6 @@ public class ItemFactory {
     return new AgedBrie(quality, sellIn);
   }
 
+  public static StorageItem createBackstagePass(int sellIn, int quality, String name){return new BackStagePass(sellIn, quality, name);}
+
 }
