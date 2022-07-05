@@ -1,5 +1,5 @@
 
-public class Item implements StorageItem{
+public class Item implements StorageItem {
 
   public String name;
   public int sellIn;
@@ -24,7 +24,7 @@ public class Item implements StorageItem{
     return sellIn;
   }
 
-  public void setSellIn(int sellIn) {
+  protected void setSellIn(int sellIn) {
     this.sellIn = sellIn;
   }
 
@@ -32,13 +32,20 @@ public class Item implements StorageItem{
     return quality;
   }
 
-  public void setQuality(int quality) {
+  protected void setQuality(int quality) {
+    if (quality < 0) {
+      throw new IllegalArgumentException("Quality must never be negative");
+    }
     this.quality = quality;
   }
 
+
   @Override
   public void update() {
-
+    if (quality > 0) {
+      setQuality(quality - 1);
+    }
+    setSellIn(sellIn - 1);
   }
 
   @Override
