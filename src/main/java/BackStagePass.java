@@ -19,16 +19,17 @@ public class BackStagePass implements StorageItem {
 
   @Override
   public void update() {
-    //ToDo Fix this so quality does not get bigger than 50
-    if(quality + 1 == 50 ){
-      return;
-    }
+    int alteredQuality = quality;
+
     if (sellIn < 10 && sellIn > 5) {
-      quality += 2;
+      alteredQuality += 2;
     } else if (sellIn < 5) {
-      quality += 3;
+      alteredQuality += 3;
     } else {
-      quality++;
+      alteredQuality++;
+    }
+    if (alteredQuality <= 50 ) {
+      quality = alteredQuality;
     }
   }
 

@@ -134,6 +134,16 @@ class GildedRoseSpec extends Specification {
     sellIn << [0,1,2,3,4,5,6,7,8,9,10,11,20,44]
   }
 
+  def "when the backstage pass has a higher sellin value of greater than 10, the quality increases by one" () {
+    when:
+    def item = ItemFactory.createBackstagePass(11, 49, "TAFKAL80ETC")
+    GildedRose.items = [item]
+    GildedRose.updateQuality()
+
+    then:
+    item.quality() == 50
+  }
+
   def "in between 5-10 days before the concert, backstage passes increase in quality by 2"() {
     given:
     def items = new ArrayList<Item>();
