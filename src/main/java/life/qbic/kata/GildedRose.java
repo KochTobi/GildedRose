@@ -1,3 +1,5 @@
+package life.qbic.kata;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,9 @@
+package life.qbic.kata
 
+import life.qbic.kata.GildedRose
+import life.qbic.kata.Item
+import life.qbic.kata.ItemFactory
+import life.qbic.kata.StorageItem
 import spock.lang.Specification
 
 class GildedRoseSpec extends Specification {
@@ -8,7 +13,7 @@ class GildedRoseSpec extends Specification {
     given:
     def items = new ArrayList<StorageItem>()
 
-    def item = new Item("Test Item", 10, 20)
+    def item = new Item("Test life.qbic.kata.Item", 10, 20)
     items.add(item)
     GildedRose.items = items
     when:

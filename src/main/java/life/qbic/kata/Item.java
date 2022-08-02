@@ -1,3 +1,4 @@
+package life.qbic.kata;
 
 public class Item implements StorageItem {
 

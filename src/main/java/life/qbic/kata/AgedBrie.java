@@ -1,3 +1,5 @@
+package life.qbic.kata;
+
 /**
  * <class short description - One Line!>
  * <p>

@@ -1,3 +1,5 @@
+package life.qbic.kata;
+
 public class LegendaryItem implements StorageItem {
 
     private final String name;
