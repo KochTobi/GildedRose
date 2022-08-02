@@ -70,7 +70,7 @@ class GildedRoseSpec extends Specification {
   def "Sulfuras does not loose quality"() {
     given:
     def items = new ArrayList<Item>();
-    def item = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
+    def item = ItemFactory.createLegendaryItem("Sulfuras, Hand of Ragnaros");
     items.add(item);
     GildedRose.items = items
     when:
@@ -82,7 +82,7 @@ class GildedRoseSpec extends Specification {
   def "Sulfuras never has to be sold"() {
     given:
     def items = new ArrayList<Item>();
-    def item = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
+    def item = ItemFactory.createLegendaryItem("Sulfuras, Hand of Ragnaros");
     items.add(item);
     GildedRose.items = items
     when:

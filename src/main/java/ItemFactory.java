@@ -13,4 +13,6 @@ public class ItemFactory {
 
   public static StorageItem createBackstagePass(int sellIn, int quality, String name){return new BackStagePass(sellIn, quality, name);}
 
+  public static StorageItem createLegendaryItem(String name){return new LegendaryItem(name);}
+
 }
