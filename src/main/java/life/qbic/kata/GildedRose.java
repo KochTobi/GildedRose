@@ -18,13 +18,13 @@ public class GildedRose {
     System.out.println("OMGHAI!");
 
     items = new ArrayList<>();
-    items.add(ItemFactory.createItem("+5 Dexterity Vest", 10, 20));
+    items.add(ItemFactory.createItem(10, 20, "+5 Dexterity Vest"));
     items.add(ItemFactory.createAgedBrie(2, 0));
     items.add(ItemFactory.createLegendaryItem("Sulfuras, Hand of Ragnaros"));
-    items.add(ItemFactory.createItem("Elixir of the Mongoose", 5, 7));
+    items.add(ItemFactory.createItem(5, 7, "Elixir of the Mongoose"));
     items.add(
         ItemFactory.createBackstagePass(15, 20, "Backstage passes to a TAFKAL80ETC concert"));
-    items.add(ItemFactory.createItem("Conjured Mana Cake", 3, 6));
+    items.add(ItemFactory.createItem(3, 6, "Conjured Mana Cake"));
 
     updateQuality();
   }

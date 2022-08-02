@@ -19,7 +19,7 @@ public class ItemFactory {
 
   public static StorageItem createLegendaryItem(String name){return new LegendaryItem(name);}
 
-  public static StorageItem createItem(String name, int sellIn, int quality) {
+  public static StorageItem createItem(int sellIn, int quality, String name) {
     return new Item(name, sellIn, quality);
   }
 
