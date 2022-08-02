@@ -1,6 +1,8 @@
-package life.qbic.kata;
+package life.qbic.kata.item;
 
-public class LegendaryItem implements StorageItem {
+import life.qbic.kata.item.api.StorageItem;
+
+class LegendaryItem implements StorageItem {
 
     private final String name;
     private static final int sellIn = 0;

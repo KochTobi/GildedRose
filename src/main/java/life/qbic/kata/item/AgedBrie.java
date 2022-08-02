@@ -1,4 +1,6 @@
-package life.qbic.kata;
+package life.qbic.kata.item;
+
+import life.qbic.kata.item.api.StorageItem;
 
 /**
  * <class short description - One Line!>
@@ -7,7 +9,7 @@ package life.qbic.kata;
  *
  * @since <version tag>
  */
-public class AgedBrie implements StorageItem {
+class AgedBrie implements StorageItem {
 
   private int quality;
   private int sellIn;

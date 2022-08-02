@@ -2,6 +2,8 @@ package life.qbic.kata;
 
 import java.util.ArrayList;
 import java.util.List;
+import life.qbic.kata.item.ItemFactory;
+import life.qbic.kata.item.api.StorageItem;
 
 
 public class GildedRose {
@@ -15,15 +17,14 @@ public class GildedRose {
 
     System.out.println("OMGHAI!");
 
-    items = new ArrayList<StorageItem>();
-    StorageItem agedBrie = ItemFactory.createAgedBrie(2, 0);
-    items.add(new Item("+5 Dexterity Vest", 10, 20));
-    items.add(agedBrie);
-    StorageItem sulfuras = ItemFactory.createLegendaryItem("Sulfuras, Hand of Ragnaros");
-    items.add(sulfuras);
-    items.add(new Item("Elixir of the Mongoose", 5, 7));
-    items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
-    items.add(new Item("Conjured Mana Cake", 3, 6));
+    items = new ArrayList<>();
+    items.add(ItemFactory.createItem("+5 Dexterity Vest", 10, 20));
+    items.add(ItemFactory.createAgedBrie(2, 0));
+    items.add(ItemFactory.createLegendaryItem("Sulfuras, Hand of Ragnaros"));
+    items.add(ItemFactory.createItem("Elixir of the Mongoose", 5, 7));
+    items.add(
+        ItemFactory.createBackstagePass(15, 20, "Backstage passes to a TAFKAL80ETC concert"));
+    items.add(ItemFactory.createItem("Conjured Mana Cake", 3, 6));
 
     updateQuality();
   }

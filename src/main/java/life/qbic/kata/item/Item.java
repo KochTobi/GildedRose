@@ -1,6 +1,8 @@
-package life.qbic.kata;
+package life.qbic.kata.item;
 
-public class Item implements StorageItem {
+import life.qbic.kata.item.api.StorageItem;
+
+class Item implements StorageItem {
 
     public String name;
     public int sellIn;

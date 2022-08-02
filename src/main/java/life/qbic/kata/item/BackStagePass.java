@@ -1,4 +1,6 @@
-package life.qbic.kata;
+package life.qbic.kata.item;
+
+import life.qbic.kata.item.api.StorageItem;
 
 /**
  * <b><class short description - 1 Line!></b>
@@ -7,10 +9,10 @@ package life.qbic.kata;
  *
  * @since <version tag>
  */
-public class BackStagePass implements StorageItem {
+class BackStagePass implements StorageItem {
 
   private int sellIn;
-  private String concertName;
+  private final String concertName;
   private int quality;
 
   public BackStagePass(int sellIn, int quality, String concertName) {
