@@ -23,4 +23,8 @@ public class ItemFactory {
     return new Item(name, sellIn, quality);
   }
 
+  public static StorageItem createConjuredItem(int sellIn, int quality, String name) {
+    return new ConjuredItem(name, sellIn, quality);
+  }
+
 }
