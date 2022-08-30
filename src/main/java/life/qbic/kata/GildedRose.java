@@ -30,34 +30,7 @@ public class GildedRose {
   }
 
   public static void updateQuality() {
-    for (int i = 0; i < items.size(); i++) {
-      if ((!"Aged Brie".equals(items.get(i).name()))
-          && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).name())) {
-        if (items.get(i).quality() > 0) {
-          if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).name())) {
-            items.get(i).update();
-          }
-        }
-      } else {
-        if (items.get(i).quality() < 50) {
-          items.get(i).update();
-
-          if ("Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).name())) {
-            if (items.get(i).sellIn() < 11) {
-              if (items.get(i).quality() < 50) {
-                items.get(i).update();
-              }
-            }
-
-            if (items.get(i).sellIn() < 6) {
-              if (items.get(i).quality() < 50) {
-                items.get(i).update();
-              }
-            }
-          }
-        }
-      }
-    }
+    items.forEach(StorageItem::update);
   }
 
 }
