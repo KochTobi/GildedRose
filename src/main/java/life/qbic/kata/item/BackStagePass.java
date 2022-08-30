@@ -23,17 +23,19 @@ class BackStagePass implements StorageItem {
 
   @Override
   public void update() {
-    int alteredQuality = quality;
+    int updatedQuality = quality;
 
-    if (sellIn < 10 && sellIn > 5) {
-      alteredQuality += 2;
-    } else if (sellIn < 5) {
-      alteredQuality += 3;
+    if (sellIn <= 10 && sellIn > 5) {
+      updatedQuality += 2;
+    } else if (sellIn <= 5 && sellIn > 0) {
+      updatedQuality += 3;
+    } else if (sellIn == 0) {
+      updatedQuality = 0;
     } else {
-      alteredQuality++;
+      updatedQuality++;
     }
-    if (alteredQuality <= 50 ) {
-      quality = alteredQuality;
+    if (updatedQuality <= 50 ) {
+      quality = updatedQuality;
     }
   }
 
