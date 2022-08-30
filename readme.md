@@ -25,11 +25,9 @@ Feel free to make any changes to the UpdateQuality method and add any new code a
 Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
 
 ## open points:
-* fix backstage pass tests
-* make backstage pass tests pass
-* refactor updateQuality method in GildedRose
-* implement conjured items
-* ...
+* test sellin change for conjured items
+* test conjured item with remaining sellin
+* test all item types for shared behaviour e.g. quality does not get smaller than 0
 
 
 Credits
