@@ -111,11 +111,10 @@ class GildedRoseSpec extends Specification {
   def "with 11 or more days until the concert, backstage passes increase in quality by 1"() {
     given:
     def items = new ArrayList<Item>();
-    def item = new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 20)
+    def item = ItemFactory.createBackstagePass(sellIn, 20, "Backstage passes to a TAFKAL80ETC concert")
     items.add(item);
-    GildedRose.items = items
     when:
-    item.setQuality(20)
+    GildedRose.items = items
     GildedRose.updateQuality()
     then:
     item.quality == 21
@@ -152,11 +151,10 @@ class GildedRoseSpec extends Specification {
   def "in between 5-10 days before the concert, backstage passes increase in quality by 2"() {
     given:
     def items = new ArrayList<Item>();
-    def item = new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 20)
+    def item = ItemFactory.createBackstagePass(  sellIn, 20, "Backstage passes to a TAFKAL80ETC concert")
     items.add(item);
-    GildedRose.items = items
     when:
-    item.setQuality(20)
+    GildedRose.items = items
     GildedRose.updateQuality()
     then:
     item.quality == 22
@@ -166,11 +164,10 @@ class GildedRoseSpec extends Specification {
   def "in between 1-5 days before the concert, backstage passes increase in quality by 3"() {
     given:
     def items = new ArrayList<Item>();
-    def item = new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 20)
+    def item = ItemFactory.createBackstagePass(sellIn, 20, "Backstage passes to a TAFKAL80ETC concert")
     items.add(item);
-    GildedRose.items = items
     when:
-    item.setQuality(20)
+    GildedRose.items = items
     GildedRose.updateQuality()
     then:
     item.quality == 23
@@ -181,10 +178,10 @@ class GildedRoseSpec extends Specification {
   def "at the day of the concert, the quality drops to 0"() {
     given:
     def items = new ArrayList<Item>();
-    def item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)
+    def item = ItemFactory.createBackstagePass(0, 20, "Backstage passes to a TAFKAL80ETC concert")
     items.add(item);
-    GildedRose.items = items
     when:
+    GildedRose.items = items
     GildedRose.updateQuality()
     then:
     item.quality == 0
