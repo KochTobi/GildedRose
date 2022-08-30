@@ -16,7 +16,28 @@ public class ConjuredItem implements StorageItem {
 
     @Override
     public void update() {
+        if (sellIn < 0) {
+            decreaseQualityBy(4);
+        } else {
+            decreaseQualityBy(2);
+        }
+        setSellIn(sellIn - 1);
+    }
 
+    protected void decreaseQualityBy(int amount){
+        if (quality - amount <= 0) {
+            quality = 0;
+            return;
+        }
+        setQuality(quality - amount);
+    }
+
+    public void setSellIn(int sellIn) {
+        this.sellIn = sellIn;
+    }
+
+    public void setQuality(int quality) {
+        this.quality = quality;
     }
 
     @Override

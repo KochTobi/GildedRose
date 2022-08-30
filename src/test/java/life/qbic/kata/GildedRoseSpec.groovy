@@ -191,18 +191,23 @@ class GildedRoseSpec extends Specification {
   def "to test that conjured items degrade twice as fast as normal items"() {
     given:
     def items = new ArrayList<StorageItem>();
-    def normalItem = ItemFactory.createItem(0, 20, "normal item")
-    def conjuredItem = ItemFactory.createConjuredItem(0, 20, "conjured item")
+    def normalItem = ItemFactory.createItem(0, quality, "normal item")
+    def conjuredItem = ItemFactory.createConjuredItem(0, quality, "conjured item")
     items.add(normalItem);
     items.add(conjuredItem);
     when:
     GildedRose.items = items
     GildedRose.updateQuality()
     then:
-    def normalDiff = 20 - normalItem.quality()
-    def conjuredDiff = 20 - conjuredItem.quality()
+    def normalDiff = quality - normalItem.quality()
+    def conjuredDiff = quality - conjuredItem.quality()
     conjuredDiff == 2*normalDiff
+
+    where:
+    quality << [20,3,4,8]
   }
+
+
 
 
 
